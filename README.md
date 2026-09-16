@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/icon.png" alt="API Client" width="120" height="120" />
+<img src="assets/icon.png" alt="FACT" width="120" height="120" />
 
 # FACT - File-based API Client Tool
 
@@ -10,13 +10,13 @@ Git-friendly. Diff-friendly. No accounts, no cloud sync, no vendor lock-in.
 
 </div>
 
-<div align="center"><img src="assets/screenshots/demo.gif" alt="API Client demo" width="820" /></div>
+<div align="center"><img src="assets/screenshots/demo.gif" alt="FACT demo" width="820" /></div>
 
 ---
 
 ## What is it?
 
-API Client is a desktop and Docker app for building, sending, and testing HTTP requests. The difference from a typical API client is **where your data lives**: every collection, request, and environment is a human-readable **YAML file on your disk**, not locked inside a proprietary cloud account.
+FACT is a desktop and Docker app for building, sending, and testing HTTP requests. The difference from a typical API client is **where your data lives**: every collection, request, and environment is a human-readable **YAML file on your disk**, not locked inside a proprietary cloud account.
 
 That makes your API workspace behave like the rest of your codebase:
 
