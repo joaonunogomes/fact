@@ -2,7 +2,7 @@
 
 <img src="assets/icon.png" alt="API Client" width="120" height="120" />
 
-# API Client
+# FACT - File-based API Client Tool
 
 **A self-hosted, file-based API client — everything is stored as plain YAML files you own.**
 
