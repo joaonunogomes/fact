@@ -541,6 +541,22 @@
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
           <span id="copy-label">Copy command</span>
         </button>
+        <p style="margin-top:24px;margin-bottom:0;font-size:13.5px;color:var(--muted)">Prefer Compose? Save as <code>docker-compose.yml</code> and run <code>docker compose up</code>:</p>
+        <div class="term">
+          <div class="term-bar"><span class="lamp r"></span><span class="lamp y"></span><span class="lamp g"></span></div>
+<pre id="compose-cmd"><span class="k">services</span><span class="punct">:</span>
+  <span class="k">fact</span><span class="punct">:</span>
+    <span class="k">image</span><span class="punct">:</span> ghcr.io/joaonunogomes/fact:<span class="url">latest</span>
+    <span class="k">ports</span><span class="punct">:</span>
+      <span class="punct">-</span> <span class="url">"47821:47821"</span>
+    <span class="cmt"># mount your own workspace folder</span>
+    <span class="k">volumes</span><span class="punct">:</span>
+      <span class="punct">-</span> ./my-api-workspace:/workspace</pre>
+        </div>
+        <button class="copy" id="copy-compose-btn" type="button">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span id="copy-compose-label">Copy compose file</span>
+        </button>
         <p class="open-url">Then open <code>http://localhost:47821</code></p>
       </div>
     </div>
@@ -585,6 +601,22 @@
       navigator.clipboard.writeText(cmd).then(function(){
         label.textContent = 'Copied';
         setTimeout(function(){ label.textContent = 'Copy command'; }, 1600);
+      }).catch(function(){
+        label.textContent = 'Press Ctrl+C';
+      });
+    });
+  })();
+
+  // Copy the docker-compose.yml file.
+  (function(){
+    var btn = document.getElementById('copy-compose-btn');
+    var label = document.getElementById('copy-compose-label');
+    if(!btn) return;
+    var compose = 'services:\n  fact:\n    image: ghcr.io/joaonunogomes/fact:latest\n    ports:\n      - "47821:47821"\n    # mount your own workspace folder\n    volumes:\n      - ./my-api-workspace:/workspace\n';
+    btn.addEventListener('click', function(){
+      navigator.clipboard.writeText(compose).then(function(){
+        label.textContent = 'Copied';
+        setTimeout(function(){ label.textContent = 'Copy compose file'; }, 1600);
       }).catch(function(){
         label.textContent = 'Press Ctrl+C';
       });
